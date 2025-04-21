@@ -2,6 +2,7 @@ import config from "./config";
 import { createAnthropic } from "@ai-sdk/anthropic";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
+import { createAzure } from '@ai-sdk/azure';
 import { generateObject } from "ai";
 import { info } from "@actions/core";
 import { z } from "zod";
@@ -36,6 +37,11 @@ const LLM_MODELS = [
   {
     name: "o3-mini",
     createAi: createOpenAI,
+  },
+  // Azure OpenAI
+  { 
+    name: "gpt-4",
+    createAi: createAzure,
   },
   // Google stable models https://ai.google.dev/gemini-api/docs/models/gemini
   {
